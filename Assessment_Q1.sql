@@ -6,7 +6,7 @@ AND one funded investment plan, sorted by total deposits. */
 
 USE adashi_staging;
 SELECT u.id AS owner_id, 
-       u.name, 
+       CONCAT(u.first_name, ' ', u.last_name) AS `name`, 
        COUNT(DISTINCT s.id) AS savings_count, 
        COUNT(DISTINCT p.id) AS investment_count, 
        (COALESCE(SUM(s.confirmed_amount), 0) + COALESCE(SUM(p.amount), 0)) AS total_deposits
